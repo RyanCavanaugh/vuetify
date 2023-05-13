@@ -1,5 +1,5 @@
 import type { DateAdapter } from '@/adapters/date-adapter'
-import { useDate } from '@/composables/date'
+import { useDate } from '@/labs/date'
 import { useProxiedModel } from '@/composables/proxiedModel'
 import { wrapInArray } from '@/util'
 import { computed, inject, onBeforeMount, provide, ref } from 'vue'

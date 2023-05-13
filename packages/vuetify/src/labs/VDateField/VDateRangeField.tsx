@@ -57,11 +57,11 @@ export const VDateRangeField = defineComponent({
     const { t } = useLocale()
     const { adapter, model, inputMode, viewMode, displayDate } = createDateField(props, true)
 
-    const startInput = ref(model.value.length ? adapter.value.format(model.value[0], 'keyboardDate') : '')
-    const endInput = ref(model.value.length > 1 ? adapter.value.format(model.value[1], 'keyboardDate') : '')
+    const startInput = ref(model.value.length ? adapter.format(model.value[0], 'keyboardDate') : '')
+    const endInput = ref(model.value.length > 1 ? adapter.format(model.value[1], 'keyboardDate') : '')
 
     function handleBlur (index: number) {
-      const { isValid, isSameDay, date } = adapter.value
+      const { isValid, isSameDay, date } = adapter
 
       if (index === 0 && isValid(startInput.value)) {
         const newDate = date(startInput.value)
@@ -82,11 +82,11 @@ export const VDateRangeField = defineComponent({
       if (!newValue.length) return
 
       if (newValue[0]) {
-        startInput.value = adapter.value.format(newValue[0], 'keyboardDate')
+        startInput.value = adapter.format(newValue[0], 'keyboardDate')
       }
 
       if (newValue[1]) {
-        endInput.value = adapter.value.format(newValue[1], 'keyboardDate')
+        endInput.value = adapter.format(newValue[1], 'keyboardDate')
       }
     })
 

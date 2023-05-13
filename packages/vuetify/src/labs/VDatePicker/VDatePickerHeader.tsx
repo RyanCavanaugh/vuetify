@@ -11,7 +11,7 @@ import { useBackgroundColor } from '@/composables/color'
 import { defineComponent, omit, pick, useRender } from '@/util'
 import { computed } from 'vue'
 import { useLocale } from '@/composables/locale'
-import { useDate } from '@/composables/date'
+import { useDate } from '@/labs/date'
 import { dateEmits, makeDateProps } from '../VDateField/composables'
 
 export const VDatePickerHeader = defineComponent({
@@ -48,9 +48,9 @@ export const VDatePickerHeader = defineComponent({
 
       if (!props.modelValue?.length) return t(`$vuetify.datePicker.${props.range ? 'range.' : ''}header.placeholder`)
 
-      if (props.modelValue.length === 1) return adapter.value.format(props.modelValue[0], 'normalDateWithWeekday')
+      if (props.modelValue.length === 1) return adapter.format(props.modelValue[0], 'normalDateWithWeekday')
 
-      return props.modelValue.map(date => adapter.value.format(date, 'monthAndDate')).join(' - ')
+      return props.modelValue.map(date => adapter.format(date, 'monthAndDate')).join(' - ')
     })
 
     const titleText = computed(() => {

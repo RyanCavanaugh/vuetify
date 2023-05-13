@@ -75,7 +75,7 @@ export const VDateCard = defineComponent({
               viewMode={ props.viewMode }
               onUpdate:viewMode={ viewMode => emit('update:viewMode', viewMode) }
             />
-          ) }
+          )}
         </MaybeTransition>
       </VCard>
     ))
